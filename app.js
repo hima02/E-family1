@@ -88,7 +88,9 @@ function validateOrganization(req) {
 }*/
 //updated from other user
 dbUtils.initDB();
-
+function test(){
+    Console.log("welcome to sysgain")
+}
 SwaggerRestify.create(config, function(err, swaggerRestify) {
     if (err) { throw err; }
     swaggerRestify.register(app);
