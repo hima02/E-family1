@@ -91,6 +91,7 @@ dbUtils.initDB();
 function test(){
     Console.log("welcome to sysgain");
     console.log('sdlfkasjskdlfajdsklflka')
+    console.lgo("sdfdsfdsfds");
 }
 SwaggerRestify.create(config, function(err, swaggerRestify) {
     if (err) { throw err; }
