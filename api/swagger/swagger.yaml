@@ -1,0 +1,147 @@
+swagger: "2.0"
+info:
+  description: "Family Services API"
+  version: "1.0"
+  title: "SYS GAIN FAMILY"
+basePath: "/family-service"
+schemes:
+- "http"
+# format of bodies a client can send (Content-Type)
+paths:
+ /family:
+    post:
+      tags:
+      - "familydetails"
+      summary: "Creates familydetails."
+      description: "Creates familydetails."
+      operationId: "createFamily"
+      #security: 
+       # - UserSecurity: [] 
+      produces:
+      - "application/json"
+      parameters:    
+      - name: "body"
+        in: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/family"
+      responses:
+        200:
+          description: "Family Details"
+          schema:
+            type: "object"
+            properties: {}
+        400:
+          description: "Error creating a familydetails"
+        default:
+          description: "Unexpected error"
+      x-swagger-router-controller: "FamilyService"
+    get:
+      tags:
+       - "Family details"
+      summary: "Get details"
+      description: "Get Details by"
+      operationId: "getDetails"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "A json of type for given familyId."
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/family"
+        default:
+          description: "Unexpected error"
+      x-swagger-router-controller: "FamilyService"  
+  
+ /family/{familyId}:  
+    get:
+      tags:
+      - "Address by details by id"
+      summary: "Get Details"
+      description: "Get Details by familyId"
+      operationId: "getDetailsById"
+      #security: 
+       # - UserSecurity: []
+      parameters:
+        - name: familyId
+          in: path
+          description: familyId
+          required: true
+          type: string
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "A json of type for given familyId."
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/family"
+        default:
+          description: "Unexpected error"
+      x-swagger-router-controller: "FamilyService" 
+    delete:
+      tags:
+      - "Delete type by famil id"
+      summary: "delete Details"
+      description: "delete Details by familyId"
+      operationId: "deleteDetails"
+     # security: 
+      #  - UserSecurity: []
+      parameters:
+        - name: familyId
+          in: path
+          description: familyId
+          required: true
+          type: string
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "deleted"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/family"
+        default:
+          description: "Unexpected error"
+      x-swagger-router-controller: "FamilyService"     
+    put:
+      tags:
+      - "update Details by familyid"
+      summary: "updates a Details."
+      description: "updates a Details."
+      operationId: "updateDetails"
+      #security: 
+       # - UserSecurity: []
+      parameters:
+        - name: familyId
+          in: path
+          description: familyId
+          required: true
+          type: string 
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            $ref: "#/definitions/family"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "update Details."
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/family"
+        default:
+          description: "Unexpected error"
+      x-swagger-router-controller: "FamilyService" 
+
+ /swagger:
+    x-swagger-pipe: swagger_raw
+definitions:  
+  family:
+   type: "object"
