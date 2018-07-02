@@ -86,6 +86,7 @@ function validateOrganization(req) {
     });
     return data;
 }*/
+//updated from other user
 dbUtils.initDB();
 
 SwaggerRestify.create(config, function(err, swaggerRestify) {
