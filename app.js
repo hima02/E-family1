@@ -100,5 +100,5 @@ SwaggerRestify.create(config, function(err, swaggerRestify) {
         console.log('try this:\ncurl http://127.0.0.1:%d/family-service/swagger', port);
     }
 });
-
+console.log("updated");
 module.exports = app; // for testing
