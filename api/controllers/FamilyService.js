@@ -3,6 +3,9 @@
 //changes made
 //test for change
 //getting conflicts
+//changes made
+//logger creation
+
 var Family = require('../domain/family');
   var Logger = require('bunyan');
 var log =  new Logger.createLogger({
